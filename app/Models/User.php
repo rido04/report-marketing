@@ -44,4 +44,16 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    // relasi ke company
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
+    }
+
+    // relasi ke user
+    public function users()
+    {
+        return $this->hasMany(User::class);
+    }
 }

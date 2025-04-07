@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->foreignId('company_id')->constrained()->cascadeOnDelete();
+            $table->string('role')->default('viewer'); // atau 'admin', 'viewer', dsb
             $table->rememberToken();
             $table->timestamps();
         });
